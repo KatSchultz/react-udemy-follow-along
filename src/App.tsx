@@ -1,10 +1,15 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import ExpenseItem from "./components/ExpenseItem";
+import Expenses from "./components/Expenses";
+
+export interface Expense {
+  id: string;
+  title: string;
+  amount: number;
+  date: Date;
+}
 
 function App() {
-  const expenses = [
+  const expenses: Expense[] = [
     {
       id: "e1",
       title: "Toilet Paper",
@@ -28,30 +33,7 @@ function App() {
 
   return (
     <div className="App">
-      <ExpenseItem
-        title={expenses[0].title}
-        amount={expenses[0].amount}
-        id={expenses[0].id}
-        date={expenses[0].date}
-      />
-      <ExpenseItem
-        title={expenses[1].title}
-        amount={expenses[1].amount}
-        id={expenses[1].id}
-        date={expenses[1].date}
-      />
-      <ExpenseItem
-        title={expenses[2].title}
-        amount={expenses[2].amount}
-        id={expenses[2].id}
-        date={expenses[2].date}
-      />
-      <ExpenseItem
-        title={expenses[3].title}
-        amount={expenses[3].amount}
-        id={expenses[3].id}
-        date={expenses[3].date}
-      />
+      <Expenses expenses={expenses} />
       {/* <ExpenseItem /> */}
     </div>
   );
